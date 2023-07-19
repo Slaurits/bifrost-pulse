@@ -4,23 +4,23 @@ const path = require('path');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('chickenfacts')
-    .setDescription('Provides a random chicken fact'),
+    .setName('pulsefacts')
+    .setDescription('Provides a random fact about pulse'),
 
   async execute(interaction) {
     try {
-      // Read the chicken facts from the JSON file
-      const factsPath = path.join(__dirname, '../json', 'chickenfacts.json');
+      // Read the facts from the JSON file
+      const factsPath = path.join(__dirname, '../json', 'pulsefacts.json');
       const factsData = fs.readFileSync(factsPath);
       const facts = JSON.parse(factsData);
 
       // Select a random fact from the array
       const randomFact = facts[Math.floor(Math.random() * facts.length)];
 
-      // Create an embed with the random fact
+      // Create an embed with said random fact
       const embed = {
-        color: 0xFFD700, // Gold color
-        title: '🐔 Random Chicken Fact 🐔',
+        color: 0x00FFFF, // Cyan color
+        title: 'Random Pulse Fact',
         description: `**${randomFact}**`,
       };
 
